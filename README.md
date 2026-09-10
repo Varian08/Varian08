@@ -1,6 +1,6 @@
 <div align="center">
 
-  <h1>Truong Van An</h1>
+  <h1 style="border-bottom: none">Truong Van An</h1>
   <h3>Software Engineer</h3>
   
   <p>
