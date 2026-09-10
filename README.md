@@ -2,7 +2,7 @@
 
   <img src="https://readme-typing-svg.demolab.com?font=Inter&weight=700&size=34&duration=1&pause=1000&color=FFFFFF&center=true&vCenter=true&repeat=false&width=450&lines=Hi%2C+I'm+An+Truong" alt="Hi, I'm An Truong" />
 
-  <p><strong>Software Engineer</strong></p>
+  <h2>Software Engineer</h2>
 
   <p>
     <a href="https://www.linkedin.com/in/an-truong-a7a756356/">
