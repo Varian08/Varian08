@@ -1,20 +1,5 @@
 <div align="center">
 
-  <img src="https://readme-typing-svg.demolab.com?font=Inter&weight=700&size=34&duration=1&pause=1000&color=FFFFFF&center=true&vCenter=true&repeat=false&width=450&lines=Hi%2C+I'm+An+Truong" alt="Hi, I'm An Truong" />
-
-  <p><strong>Software Engineer</strong></p>
-
-  <p>
-    <a href="https://www.linkedin.com/in/an-truong-a7a756356/">
-      <img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white" alt="LinkedIn" />
-    </a>
-    <a href="mailto:anvantruong707@gmail.com">
-      <img src="https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white" alt="Email" />
-    </a>
-  </p>
-
-  ---
-
   <h3>Tech Stack</h3>
 
   <p>
@@ -28,7 +13,7 @@
     <img src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
   </p>
 
-  ---
+  <br/>
 
   <h3>GitHub Overview</h3>
 
