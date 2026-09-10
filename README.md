@@ -17,7 +17,7 @@
   <br/>
   ============================================================ -->
 
-  <h2>GitHub Overview</h2>
+  <h3>GitHub Overview</h3>
 
   <p>
     <img height="165" src="https://github-readme-stats.shion.dev/api?username=Varian08&theme=transparent&hide_border=false&include_all_commits=true&count_private=true" alt="GitHub Stats" />
