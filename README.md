@@ -1,8 +1,8 @@
 <div align="center">
 
-  <h1>👋 Hi, I'm Truong Van An</h1>
+  <h1> Hi, I'm An Truong </h1>
   <p><strong>Software Engineering Student & Backend-focused Developer</strong></p>
-  <p>🚀 Passionate about building robust backend systems, APIs, and scalable web applications.</p>
+  <p>Passionate about building robust backend systems, APIs, and scalable web applications.</p>
   
   <p>
     <a href="https://www.linkedin.com/in/an-truong-a7a756356/">
