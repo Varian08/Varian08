@@ -18,7 +18,7 @@
   <h2>GitHub Overview</h2>
 
   <p>
-    <img height="165" src="https://github-readme-stats.shion.dev/api?username=Varian08&theme=transparent&hide_border=false&include_all_commits=true&count_private=true&hide=contribs" alt="GitHub Stats" />
+    <img height="165" src="https://github-readme-stats.shion.dev/api?username=Varian08&theme=transparent&hide_border=false&include_all_commits=true&count_private=true" alt="GitHub Stats" />
     <img height="165" src="https://streak-stats.demolab.com/?user=Varian08&theme=transparent&hide_border=false" alt="GitHub Streak" />
   </p>
   <p>
