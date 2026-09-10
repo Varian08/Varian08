@@ -1,7 +1,7 @@
 <div align="center">
 
-  <h1>👋 Hi, I'm Truong Van An</h1>
-  <p><strong>Software Engineer</strong></p>
+  <h1>Truong Van An</h1>
+  <h3>Software Engineer</h3>
   
   <p>
     <a href="https://www.linkedin.com/in/an-truong-a7a756356/">
@@ -14,7 +14,7 @@
 
   ---
 
-  <h3>💻 Tech Stack</h3>
+  <h3>Tech Stack</h3>
 
   <p>
     <img src="https://img.shields.io/badge/Java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java" />
@@ -29,7 +29,7 @@
 
   ---
 
-  <h3>📊 GitHub Stats</h3>
+  <h3>GitHub Overview</h3>
 
   <p>
     <img height="165" src="https://github-readme-stats.shion.dev/api?username=Varian08&theme=transparent&hide_border=false&include_all_commits=true&count_private=true" alt="GitHub Stats" />
