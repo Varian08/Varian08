@@ -19,12 +19,18 @@
 
   <h2>GitHub Overview</h2>
 
-  <p>
-    <img height="165" src="https://github-readme-stats.shion.dev/api?username=Varian08&theme=transparent&hide_border=false&include_all_commits=true&count_private=true" alt="GitHub Stats" />
-    <img height="165" src="https://streak-stats.demolab.com/?user=Varian08&theme=transparent&hide_border=false" alt="GitHub Streak" />
-  </p>
-  <p>
-    <img height="165" src="https://github-readme-stats.shion.dev/api/top-langs/?username=Varian08&theme=transparent&hide_border=false&include_all_commits=true&count_private=true&layout=compact" alt="Top Languages" />
-  </p>
+  <table>
+    <tr>
+      <td width="33%" align="center" valign="top">
+        <img width="100%" src="https://github-readme-stats.shion.dev/api?username=Varian08&theme=transparent&hide_border=false&include_all_commits=true&count_private=true" alt="GitHub Stats" />
+      </td>
+      <td width="33%" align="center" valign="top">
+        <img width="100%" src="https://streak-stats.demolab.com/?user=Varian08&theme=transparent&hide_border=false" alt="GitHub Streak" />
+      </td>
+      <td width="33%" align="center" valign="top">
+        <img width="100%" src="https://github-readme-stats.shion.dev/api/top-langs/?username=Varian08&theme=transparent&hide_border=false&include_all_commits=true&count_private=true&layout=compact" alt="Top Languages" />
+      </td>
+    </tr>
+  </table>
 
 </div>
