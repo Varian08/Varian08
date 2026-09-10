@@ -1,8 +1,9 @@
 <div align="center">
 
-  <h1>Truong Van An</h1>
-  <h3>Software Engineer</h3>
+  <span style="font-size: 32px; font-weight: bold;">Truong Van An</span>
   
+  <p style="font-size: 18px; margin-top: 8px; margin-bottom: 12px; color: #8b949e;">Software Engineer</p>
+
   <p>
     <a href="https://www.linkedin.com/in/an-truong-a7a756356/">
       <img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white" alt="LinkedIn" />
@@ -12,10 +13,10 @@
     </a>
   </p>
 
-  ---
+  <br/>
 
-  <h3>Tech Stack</h3>
-
+  <b>Tech Stack</b>
+  <br/><br/>
   <p>
     <img src="https://img.shields.io/badge/Java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java" />
     <img src="https://img.shields.io/badge/JavaScript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E" alt="JavaScript" />
@@ -27,10 +28,10 @@
     <img src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white" alt="MongoDB" />
   </p>
 
-  ---
+  <br/>
 
-  <h3>GitHub Overview</h3>
-
+  <b>GitHub Overview</b>
+  <br/><br/>
   <p>
     <img height="165" src="https://github-readme-stats.shion.dev/api?username=Varian08&theme=transparent&hide_border=false&include_all_commits=true&count_private=true" alt="GitHub Stats" />
     <img height="165" src="https://streak-stats.demolab.com/?user=Varian08&theme=transparent&hide_border=false" alt="GitHub Streak" />
