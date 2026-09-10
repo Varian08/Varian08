@@ -17,15 +17,14 @@
   <br/>
   ============================================================ -->
 
-  <h3>GitHub Overview</h3>
+  <h2>GitHub Overview</h2>
 
   <p>
-    <img height="115" src="https://github-readme-stats.shion.dev/api?username=Varian08&theme=transparent&hide_border=false&include_all_commits=true&count_private=true" alt="GitHub Stats" />
-    &nbsp;
-    <img height="115" src="https://streak-stats.demolab.com/?user=Varian08&theme=transparent&hide_border=false" alt="GitHub Streak" />
+    <img height="165" src="https://github-readme-stats.shion.dev/api?username=Varian08&theme=transparent&hide_border=false&include_all_commits=true&count_private=true" alt="GitHub Stats" />
+    <img height="165" src="https://streak-stats.demolab.com/?user=Varian08&theme=transparent&hide_border=false" alt="GitHub Streak" />
   </p>
   <p>
-    <img height="135" src="https://github-readme-stats.shion.dev/api/top-langs/?username=Varian08&theme=transparent&hide_border=false&include_all_commits=true&count_private=true&layout=compact" alt="Top Languages" />
+    <img height="165" src="https://github-readme-stats.shion.dev/api/top-langs/?username=Varian08&theme=transparent&hide_border=false&include_all_commits=true&count_private=true&layout=compact" alt="Top Languages" />
   </p>
 
 </div>
