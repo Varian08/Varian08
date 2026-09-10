@@ -1,6 +1,6 @@
 <div align="center">
 
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=32&duration=1&pause=1000&color=FFFFFF&center=true&vCenter=true&repeat=false&width=450&lines=Hi%2C+I'm+An+Truong" alt="Hi, I'm An Truong" />
+  <img src="https://readme-typing-svg.demolab.com?font=Inter&weight=700&size=34&duration=1&pause=1000&color=FFFFFF&center=true&vCenter=true&repeat=false&width=450&lines=Hi%2C+I'm+An+Truong" alt="Hi, I'm An Truong" />
 
   <p><strong>Software Engineer</strong></p>
 
