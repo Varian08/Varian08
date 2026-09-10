@@ -1,6 +1,6 @@
 <div align="center">
 
-  <h3>Tech Stack</h3>
+  <h2>Tech Stack</h2>
 
   <p>
     <img src="https://img.shields.io/badge/Java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java" />
@@ -15,7 +15,7 @@
 
   <br/>
 
-  <h3>GitHub Overview</h3>
+  <h2>GitHub Overview</h2>
 
   <p>
     <img height="165" src="https://github-readme-stats.shion.dev/api?username=Varian08&theme=transparent&hide_border=false&include_all_commits=true&count_private=true" alt="GitHub Stats" />
