@@ -1,8 +1,9 @@
 <div align="center">
 
-  <p><strong><font size="7">Truong Van An</font></strong></p>
-  <h3>Software Engineer</h3>
-  
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=34&duration=1&pause=1000&color=FFFFFF&center=true&vCenter=true&repeat=false&width=435&lines=Truong+Van+An" alt="Truong Van An" />
+
+  <p><strong>Software Engineer</strong></p>
+
   <p>
     <a href="https://www.linkedin.com/in/an-truong-a7a756356/">
       <img src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white" alt="LinkedIn" />
