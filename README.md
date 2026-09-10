@@ -1,6 +1,6 @@
 <div align="center">
 
-  <p dir="auto"><b><font size="6">Truong Van An</font></b></p>
+  <p><strong><font size="7">Truong Van An</font></strong></p>
   <h3>Software Engineer</h3>
   
   <p>
