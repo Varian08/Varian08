@@ -1,5 +1,4 @@
 <div align="center">
-  <h1>Hi, Welcome my page.</h1>
   <h2>Tech Stack</h2>
 
   <p>
