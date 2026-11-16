@@ -4,9 +4,8 @@
   <p><strong>Software Engineer</strong></p>
   <p>
     Focused on problem-solving, system design, and delivering reliable software from database to UI.
-  </p>
-  <p>
-    I don't believe in shortcuts. Still early in my career, I put in the daily hours to master the fundamentals and understand how things work under the hood. I welcome honest feedback, take ownership of my work, and adapt fast to whatever the team needs.
+    <br/>
+    Driven by strong work ethic, engineering discipline, and a relentless hunger to learn and grow fast.
   </p>
 
   <br/>
