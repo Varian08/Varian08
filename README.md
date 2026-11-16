@@ -3,9 +3,9 @@
   <h2>An Truong (Varian)</h2>
   <p><strong>Software Engineer</strong></p>
   <p>
-    Specializing in <strong>Java &amp; Spring Boot</strong> backend systems, relational databases, and end-to-end delivery.
+    Focused on problem-solving, system design, and delivering reliable software from database to UI.
     <br/>
-    Committed to disciplined engineering, automated testing, and reliable execution in challenging teams.
+    Committed to disciplined work, continuous learning, and quickly adapting to new technologies.
   </p>
 
   <br/>
