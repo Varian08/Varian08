@@ -4,8 +4,9 @@
   <p><strong>Software Engineer</strong></p>
   <p>
     Focused on problem-solving, system design, and delivering reliable software from database to UI.
-    <br/>
-    Driven by strong work ethic, engineering discipline, and a relentless hunger to learn and grow fast.
+  </p>
+  <p>
+    I apply my knowledge, skills, and engineering discipline to get work done professionally and effectively, taking full responsibility for what I build. Always eager to learn fast and pick up new technologies, I strive to keep improving and create real value through my work.
   </p>
 
   <br/>
