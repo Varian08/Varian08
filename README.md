@@ -1,10 +1,9 @@
 <div align="center">
 
   <h2>An Truong (Varian)</h2>
-  <p><strong>Software Engineer</strong></p>
 
   <p>
-    <img width="744" src="https://raw.githubusercontent.com/Varian08/Varian08/main/about.svg?v=5" alt="I focus on problem-solving, system design, and delivering reliable software from database to UI. I apply my knowledge, skills, and engineering discipline to get work done professionally and effectively, taking full responsibility for what I build. Always eager to learn fast and pick up new technologies, I strive to keep improving and create real value through my work." />
+    <img width="744" src="https://raw.githubusercontent.com/Varian08/Varian08/main/about.svg?v=6" alt="I'm a software engineer focused on problem-solving, system design, and delivering reliable software from database to UI. I apply my knowledge, skills, and engineering discipline to get work done professionally and effectively, taking full responsibility for what I build. Always eager to learn fast and pick up new technologies, I strive to keep improving and create real value through my work." />
   </p>
 
   <p>
