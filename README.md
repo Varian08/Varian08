@@ -3,7 +3,7 @@
   <h2>An Truong (Varian)</h2>
   <p><strong>Software Engineer</strong></p>
   <p>
-    Building end-to-end software applications with a focus on clean system architecture, relational data modeling, and production-ready engineering workflows.
+    Building backend APIs, relational databases, and client apps with automated testing and CI/CD.
   </p>
 
   <br/>
