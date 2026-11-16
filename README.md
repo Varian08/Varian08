@@ -3,9 +3,9 @@
   <h2>An Truong (Varian)</h2>
   <p><strong>Software Engineer</strong></p>
   <p>
-    Focused on problem-solving, system design, and delivering reliable software from database to UI.
+    I build software end to end, focusing on problem-solving, clean system design, and code that holds up in practice.
     <br/>
-    Driven by strong work ethic, engineering discipline, and a relentless hunger to learn and grow fast.
+    I believe daily discipline beats shortcuts. I work hard, value honest code reviews, and learn new tools fast.
   </p>
 
   <br/>
