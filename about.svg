@@ -1,5 +1,5 @@
 <svg width="907" height="148" viewBox="0 0 907 148" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect x="0.5" y="0.5" width="906" height="147" rx="7.3" stroke="#30363d" />
+  <rect x="0.6" y="0.6" width="905.8" height="146.8" rx="8.5" stroke="#3d444d" stroke-width="1.2" />
   <text x="25" y="34" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-size="18" font-weight="600" fill="#4493f8">About</text>
   <text x="25" y="64" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-size="14.5" font-weight="400" fill="#9198a1">
     <tspan x="25" dy="0">I focus on problem-solving, system design, and delivering reliable software from database to UI.</tspan>
