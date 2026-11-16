@@ -3,7 +3,9 @@
   <h2>An Truong (Varian)</h2>
   <p><strong>Software Engineer</strong></p>
   <p>
-    Building backend APIs, relational databases, and client apps with automated testing and CI/CD.
+    Specializing in <strong>Java &amp; Spring Boot</strong> backend systems, relational databases, and end-to-end delivery.
+    <br/>
+    Committed to disciplined engineering, automated testing, and reliable execution in challenging teams.
   </p>
 
   <br/>
