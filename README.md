@@ -5,7 +5,7 @@
   <p>
     Focused on problem-solving, system design, and delivering reliable software from database to UI.
     <br/>
-    Committed to disciplined work, continuous learning, and quickly adapting to new technologies.
+    Driven by strong work ethic, engineering discipline, and a relentless hunger to learn and grow fast.
   </p>
 
   <br/>
