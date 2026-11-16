@@ -3,10 +3,7 @@
   <h2>An Truong (Varian)</h2>
   <p><strong>Software Engineer</strong></p>
   <p>
-    Focused on problem-solving, system design, and delivering reliable software from database to UI.
-  </p>
-  <p>
-    I apply my knowledge, skills, and engineering discipline to get work done professionally and effectively, taking full responsibility for what I build. Always eager to learn fast and pick up new technologies, I strive to keep improving and create real value through my work.
+    I focus on problem-solving, system design, and delivering reliable software from database to UI. Applying solid technical fundamentals and engineering discipline, I get work done professionally and take full ownership of every outcome. Curious and adaptable by nature, I keep sharpening my craft to turn new technologies into practical, real-world solutions.
   </p>
 
   <br/>
