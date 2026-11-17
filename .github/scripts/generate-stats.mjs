@@ -83,34 +83,32 @@ const ICONS = {
 function renderSvg(stats) {
   const width = 450;
   const height = 140;
-  const rows = [
-    { icon: ICONS.commit, label: "Total Commits (last year):", value: stats.commits },
+  const leftRows = [
+    { icon: ICONS.commit, label: "Total Commits (1y):", value: stats.commits },
     { icon: ICONS.pr, label: "Total PRs:", value: stats.prs },
-    { icon: ICONS.review, label: "Total PRs Reviewed:", value: stats.reviews },
+  ];
+  const rightRows = [
+    { icon: ICONS.review, label: "PRs Reviewed:", value: stats.reviews },
     { icon: ICONS.issue, label: "Total Issues:", value: stats.issues },
   ];
 
-  const rowEls = rows
-    .map((r, idx) => {
-      const y = idx * 19;
-      return `<g transform="translate(0, ${y})">
+  const renderCol = (rows, valX) =>
+    rows
+      .map((r, idx) => {
+        const y = idx * 30;
+        return `<g transform="translate(0, ${y})">
       <svg x="0" y="-11" width="14" height="14" viewBox="0 0 16 16" fill="#4f8cc9">${r.icon}</svg>
-      <text x="22" y="0" class="stat">${r.label}</text>
-      <text x="205" y="0" class="stat">${r.value}</text>
+      <text x="20" y="0" class="stat">${r.label}</text>
+      <text x="${valX}" y="0" text-anchor="end" class="stat-val">${r.value}</text>
     </g>`;
-    })
-    .join("\n    ");
-
-  const radius = 32;
-  const circumference = 2 * Math.PI * radius;
-  const dashArray = `${(circumference * 0.78).toFixed(1)} ${(circumference * 0.22).toFixed(1)}`;
+      })
+      .join("\n    ");
 
   return `<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub Stats">
   <style>
     .header { font: 600 15.5px 'Segoe UI', Ubuntu, Sans-Serif; fill: #4f8cc9; }
     .stat { font: 600 12px 'Segoe UI', Ubuntu, "Helvetica Neue", Sans-Serif; fill: #9e9e9e; }
-    .ring-num { font: 700 20px 'Segoe UI', Ubuntu, Sans-Serif; fill: #e6e6e6; }
-    .ring-label { font: 600 10.5px 'Segoe UI', Ubuntu, Sans-Serif; fill: #6ea4d8; }
+    .stat-val { font: 700 12px 'Segoe UI', Ubuntu, "Helvetica Neue", Sans-Serif; fill: #e6e6e6; }
   </style>
   <rect x="0.5" y="0.5" rx="6.1" height="${height - 1}" stroke="#343434" width="${
     width - 1
@@ -118,14 +116,12 @@ function renderSvg(stats) {
   <g transform="translate(25, 35)">
     <text x="0" y="0" class="header">GitHub Stats</text>
   </g>
-  <g transform="translate(25, 62)">
-    ${rowEls}
+  <g transform="translate(25, 72)">
+    ${renderCol(leftRows, 182)}
   </g>
-  <g transform="translate(362, 68)">
-    <circle cx="0" cy="0" r="${radius}" stroke="#343434" stroke-width="4" fill="none"/>
-    <circle cx="0" cy="0" r="${radius}" stroke="#4f8cc9" stroke-width="4" stroke-dasharray="${dashArray}" stroke-linecap="round" transform="rotate(-90)" fill="none"/>
-    <text x="0" y="7" text-anchor="middle" class="ring-num">${stats.activeRepos}</text>
-    <text x="0" y="48" text-anchor="middle" class="ring-label">Active Repos</text>
+  <line x1="227" y1="58" x2="227" y2="112" stroke="#343434" stroke-width="1"/>
+  <g transform="translate(247, 72)">
+    ${renderCol(rightRows, 178)}
   </g>
 </svg>
 `;
