@@ -9,6 +9,10 @@ on:
       - ".github/workflows/top-langs.yml"
       - ".github/scripts/generate-top-langs.mjs"
 
+concurrency:
+  group: profile-stats-update
+  cancel-in-progress: false
+
 jobs:
   update-top-langs:
     runs-on: ubuntu-latest
@@ -35,4 +39,4 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add top-langs.svg
-          git diff --staged --quiet || (git commit -m "chore: update top-langs stats" && git push)
+          git diff --staged --quiet || (git commit -m "chore: update top-langs stats" && git pull --rebase origin main && git push)
