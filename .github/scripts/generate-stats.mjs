@@ -20,6 +20,14 @@ async function fetchStats() {
           totalCommitContributions
           restrictedContributionsCount
           totalPullRequestReviewContributions
+          contributionCalendar {
+            weeks {
+              contributionDays {
+                date
+                contributionCount
+              }
+            }
+          }
         }
         pullRequests(first: 1) {
           totalCount
@@ -64,12 +72,31 @@ async function fetchStats() {
 
   const u = json.data.user;
   const c = u.contributionsCollection;
+
+  // Aggregate contributionCalendar into the last 12 calendar months (oldest -> newest)
+  const monthKeys = [];
+  for (let i = 11; i >= 0; i--) {
+    const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
+    const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
+    monthKeys.push(key);
+  }
+  const monthMap = Object.fromEntries(monthKeys.map((k) => [k, 0]));
+  for (const week of c.contributionCalendar?.weeks || []) {
+    for (const day of week.contributionDays || []) {
+      const key = day.date.slice(0, 7);
+      if (key in monthMap) {
+        monthMap[key] += day.contributionCount || 0;
+      }
+    }
+  }
+
   return {
     commits: (c.totalCommitContributions || 0) + (c.restrictedContributionsCount || 0),
     prs: u.pullRequests.totalCount || 0,
     reviews: c.totalPullRequestReviewContributions || 0,
     issues: u.issues.totalCount || 0,
     activeRepos: u.repositoriesContributedTo.totalCount || 0,
+    monthlyCounts: monthKeys.map((k) => monthMap[k]),
   };
 }
 
@@ -95,7 +122,7 @@ function renderSvg(stats) {
   const renderCol = (rows, valX) =>
     rows
       .map((r, idx) => {
-        const y = idx * 30;
+        const y = idx * 25;
         return `<g transform="translate(0, ${y})">
       <svg x="0" y="-11" width="14" height="14" viewBox="0 0 16 16" fill="#4f8cc9">${r.icon}</svg>
       <text x="20" y="0" class="stat">${r.label}</text>
@@ -103,6 +130,26 @@ function renderSvg(stats) {
     </g>`;
       })
       .join("\n    ");
+
+  const counts = stats.monthlyCounts || new Array(12).fill(0);
+  const maxCount = Math.max(...counts, 1);
+  const barWidth = 26;
+  const barGap = 8;
+  const maxBarH = 12;
+  const microBars = counts
+    .map((count, i) => {
+      const h = count === 0 ? 2 : Math.max(3, Math.round((count / maxCount) * maxBarH));
+      const x = i * (barWidth + barGap);
+      const y = maxBarH - h;
+      let fill = "#262626";
+      if (count > 0) {
+        if (count === maxCount) fill = "#6cb6ff";
+        else if (count >= maxCount * 0.5) fill = "#4f8cc9";
+        else fill = "#355d87";
+      }
+      return `<rect x="${x}" y="${y}" width="${barWidth}" height="${h}" rx="1.5" fill="${fill}"/>`;
+    })
+    .join("\n    ");
 
   return `<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub Stats">
   <style>
@@ -116,11 +163,14 @@ function renderSvg(stats) {
   <g transform="translate(25, 35)">
     <text x="0" y="0" class="header">GitHub Stats</text>
   </g>
-  <g transform="translate(25, 72)">
+  <g transform="translate(25, 51)">
+    ${microBars}
+  </g>
+  <g transform="translate(25, 90)">
     ${renderCol(leftRows, 182)}
   </g>
-  <line x1="227" y1="58" x2="227" y2="112" stroke="#343434" stroke-width="1"/>
-  <g transform="translate(247, 72)">
+  <line x1="227" y1="78" x2="227" y2="119" stroke="#343434" stroke-width="1"/>
+  <g transform="translate(247, 90)">
     ${renderCol(rightRows, 178)}
   </g>
 </svg>
