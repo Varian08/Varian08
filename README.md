@@ -11,7 +11,7 @@
   </p>
   <p>
     <img height="115" src="https://github-readme-stats.shion.dev/api?username=Varian08&theme=transparent&hide_border=false&border_color=343434&border_radius=6.1&title_color=4f8cc9&text_color=858585&hide_rank=true&hide=stars,contribs&show=reviews&line_height=19&card_width=450&count_private=true" alt="GitHub Stats" />
-    <img height="115" src="https://github-readme-stats.shion.dev/api/top-langs/?username=Varian08&theme=transparent&hide_border=false&border_color=343434&border_radius=6.1&title_color=4f8cc9&text_color=9e9e9e&count_private=true&layout=compact&langs_count=4&card_width=450" alt="Top Languages" />
+    <img height="115" src="./top-langs.svg" alt="Top Languages" />
   </p>
 
 </div>
