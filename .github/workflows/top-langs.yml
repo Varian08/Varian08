@@ -25,7 +25,7 @@ jobs:
 
       - name: Generate top-langs.svg from authored commits
         env:
-          GITHUB_TOKEN: ${{ secrets.STREAK_STATS_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PROFILE_STATS_TOKEN || secrets.STREAK_STATS_TOKEN }}
           GITHUB_USERNAME: Varian08
           OUTPUT_PATH: top-langs.svg
         run: node .github/scripts/generate-top-langs.mjs

@@ -158,10 +158,10 @@ function renderSvg(topLangs) {
 
   const legendItems = topLangs
     .map((lang, i) => {
-      const col = i < 2 ? 0 : 1;
-      const row = i % 2;
-      const tx = col * 150;
-      const ty = row * 21;
+      const col = i % 2;
+      const row = Math.floor(i / 2);
+      const tx = col * 190;
+      const ty = row * 16;
       return `<g transform="translate(${tx}, ${ty})">
       <circle cx="5" cy="6" r="5" fill="${lang.color}"/>
       <text x="15" y="10" class="lang-name">${escapeXml(lang.name)} ${lang.pct.toFixed(
@@ -179,10 +179,10 @@ function renderSvg(topLangs) {
   <rect x="0.5" y="0.5" rx="6.1" height="${height - 1}" stroke="#343434" width="${
     width - 1
   }" fill="#000000" fill-opacity="0"/>
-  <g transform="translate(25, 31)">
+  <g transform="translate(25, 29)">
     <text x="0" y="0" class="header">Most Used Languages</text>
   </g>
-  <g transform="translate(${barX}, ${barY})">
+  <g transform="translate(${barX}, 42)">
     <defs>
       <mask id="rect-mask">
         <rect x="0" y="0" width="${barWidth}" height="8" fill="white" rx="4"/>
@@ -190,7 +190,7 @@ function renderSvg(topLangs) {
     </defs>
     ${barSegments}
   </g>
-  <g transform="translate(25, 68)">
+  <g transform="translate(25, 61)">
     ${legendItems}
   </g>
 </svg>
@@ -231,7 +231,7 @@ async function main() {
 
   const sorted = [...totals.values()]
     .sort((a, b) => b.lines - a.lines)
-    .slice(0, 4);
+    .slice(0, 6);
 
   const totalLines = sorted.reduce((acc, l) => acc + l.lines, 0) || 1;
   const topLangs = sorted.map((l) => ({
@@ -239,7 +239,7 @@ async function main() {
     pct: (l.lines / totalLines) * 100,
   }));
 
-  console.log("Top 4 Languages (by authored lines added):", topLangs);
+  console.log("Top 6 Languages (by authored lines added):", topLangs);
   const svg = renderSvg(topLangs);
   fs.writeFileSync(OUTPUT_PATH, svg, "utf8");
   console.log(`Wrote ${OUTPUT_PATH}`);
