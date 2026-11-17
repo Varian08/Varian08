@@ -7,7 +7,7 @@
   </p>
 
   <p>
-    <img height="146" src="https://streak-stats.demolab.com/?user=Varian08&theme=transparent&border=343434&border_radius=6.7&stroke=343434&ring=4f8cc9&fire=4f8cc9&currStreakNum=e6e6e6&currStreakLabel=6ea4d8&sideNums=4f8cc9&sideLabels=9e9e9e&dates=787878" alt="GitHub Streak" />
+    <img height="146" src="./streak.svg" alt="GitHub Streak" />
   </p>
   <p>
     <img height="115" src="https://github-readme-stats.shion.dev/api?username=Varian08&theme=transparent&hide_border=false&border_color=343434&border_radius=6.1&title_color=4f8cc9&text_color=858585&hide_rank=true&hide=stars,contribs&show=reviews&line_height=19&card_width=450&count_private=true" alt="GitHub Stats" />
