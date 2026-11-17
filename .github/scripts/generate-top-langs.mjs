@@ -136,10 +136,10 @@ function escapeXml(str) {
 
 function renderSvg(topLangs) {
   const width = 450;
-  const height = 115;
+  const height = 140;
   const barWidth = 400;
   const barX = 25;
-  const barY = 46;
+  const barY = 55;
 
   let currentX = 0;
   const barSegments = topLangs
@@ -161,7 +161,7 @@ function renderSvg(topLangs) {
       const col = Math.floor(i / 2);
       const row = i % 2;
       const tx = col * 135;
-      const ty = row * 21;
+      const ty = row * 25;
       return `<g transform="translate(${tx}, ${ty})">
       <circle cx="5" cy="6" r="5" fill="${lang.color}"/>
       <text x="15" y="10" class="lang-name">${escapeXml(lang.name)} ${lang.pct.toFixed(
@@ -173,13 +173,13 @@ function renderSvg(topLangs) {
 
   return `<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Most Used Languages">
   <style>
-    .header { font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif; fill: #4f8cc9; }
+    .header { font: 600 15.5px 'Segoe UI', Ubuntu, Sans-Serif; fill: #4f8cc9; }
     .lang-name { font: 400 11px 'Segoe UI', Ubuntu, Sans-Serif; fill: #9e9e9e; }
   </style>
   <rect x="0.5" y="0.5" rx="6.1" height="${height - 1}" stroke="#343434" width="${
     width - 1
   }" fill="#000000" fill-opacity="0"/>
-  <g transform="translate(25, 31)">
+  <g transform="translate(25, 35)">
     <text x="0" y="0" class="header">Most Used Languages</text>
   </g>
   <g transform="translate(${barX}, ${barY})">
@@ -190,7 +190,7 @@ function renderSvg(topLangs) {
     </defs>
     ${barSegments}
   </g>
-  <g transform="translate(25, 68)">
+  <g transform="translate(25, 80)">
     ${legendItems}
   </g>
 </svg>
