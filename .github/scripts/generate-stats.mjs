@@ -166,11 +166,11 @@ function renderSvg(stats) {
   <g transform="translate(25, 51)">
     ${microBars}
   </g>
-  <g transform="translate(25, 90)">
+  <g transform="translate(25, 92)">
     ${renderCol(leftRows, 182)}
   </g>
-  <line x1="227" y1="78" x2="227" y2="119" stroke="#343434" stroke-width="1"/>
-  <g transform="translate(247, 90)">
+  <line x1="227" y1="80" x2="227" y2="121" stroke="#343434" stroke-width="1"/>
+  <g transform="translate(247, 92)">
     ${renderCol(rightRows, 178)}
   </g>
 </svg>
