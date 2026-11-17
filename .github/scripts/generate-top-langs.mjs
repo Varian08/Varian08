@@ -158,10 +158,10 @@ function renderSvg(topLangs) {
 
   const legendItems = topLangs
     .map((lang, i) => {
-      const col = i % 2;
-      const row = Math.floor(i / 2);
-      const tx = col * 190;
-      const ty = row * 16;
+      const col = Math.floor(i / 2);
+      const row = i % 2;
+      const tx = col * 135;
+      const ty = row * 21;
       return `<g transform="translate(${tx}, ${ty})">
       <circle cx="5" cy="6" r="5" fill="${lang.color}"/>
       <text x="15" y="10" class="lang-name">${escapeXml(lang.name)} ${lang.pct.toFixed(
@@ -179,10 +179,10 @@ function renderSvg(topLangs) {
   <rect x="0.5" y="0.5" rx="6.1" height="${height - 1}" stroke="#343434" width="${
     width - 1
   }" fill="#000000" fill-opacity="0"/>
-  <g transform="translate(25, 29)">
+  <g transform="translate(25, 31)">
     <text x="0" y="0" class="header">Most Used Languages</text>
   </g>
-  <g transform="translate(${barX}, 42)">
+  <g transform="translate(${barX}, ${barY})">
     <defs>
       <mask id="rect-mask">
         <rect x="0" y="0" width="${barWidth}" height="8" fill="white" rx="4"/>
@@ -190,7 +190,7 @@ function renderSvg(topLangs) {
     </defs>
     ${barSegments}
   </g>
-  <g transform="translate(25, 61)">
+  <g transform="translate(25, 68)">
     ${legendItems}
   </g>
 </svg>
