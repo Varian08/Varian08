@@ -1,0 +1,28 @@
+<svg width="450" height="140" viewBox="0 0 450 140" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub Stats">
+  <style>
+    .header { font: 600 15.5px 'Segoe UI', Ubuntu, Sans-Serif; fill: #4f8cc9; }
+    .stat { font: 600 12px 'Segoe UI', Ubuntu, "Helvetica Neue", Sans-Serif; fill: #9e9e9e; }
+  </style>
+  <rect x="0.5" y="0.5" rx="6.1" height="139" stroke="#343434" width="449" fill="#000000" fill-opacity="0"/>
+  <g transform="translate(25, 35)">
+    <text x="0" y="0" class="header">GitHub Stats</text>
+  </g>
+  <g transform="translate(25, 62)">
+    <g transform="translate(0, 0)">
+      <text x="0" y="0" class="stat">Total Commits (last year):</text>
+      <text x="195" y="0" class="stat">279</text>
+    </g>
+    <g transform="translate(0, 19)">
+      <text x="0" y="0" class="stat">Total PRs:</text>
+      <text x="195" y="0" class="stat">62</text>
+    </g>
+    <g transform="translate(0, 38)">
+      <text x="0" y="0" class="stat">Total PRs Reviewed:</text>
+      <text x="195" y="0" class="stat">15</text>
+    </g>
+    <g transform="translate(0, 57)">
+      <text x="0" y="0" class="stat">Total Issues:</text>
+      <text x="195" y="0" class="stat">47</text>
+    </g>
+  </g>
+</svg>
