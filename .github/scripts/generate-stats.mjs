@@ -178,7 +178,7 @@ function renderSvg(stats) {
   <style>
     .header { font: 600 15.5px 'Segoe UI', Ubuntu, Sans-Serif; fill: #4f8cc9; }
     .stat { font: 600 12px 'Segoe UI', Ubuntu, "Helvetica Neue", Sans-Serif; fill: #9e9e9e; }
-    .stat-val { font: 400 12px 'Segoe UI', Ubuntu, "Helvetica Neue", Sans-Serif; fill: #cfcfcf; }
+    .stat-val { font: 400 12px 'Segoe UI', Ubuntu, "Helvetica Neue", Sans-Serif; fill: #9e9e9e; }
     @keyframes currentMonthGlow {
       0%, 100% { filter: drop-shadow(0 0 1px rgba(79, 140, 201, 0.15)); }
       50% { filter: drop-shadow(0 0 3.5px rgba(108, 182, 255, 0.45)); }
