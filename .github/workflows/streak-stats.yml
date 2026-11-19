@@ -28,6 +28,33 @@ jobs:
           path: streak.svg
           token: ${{ secrets.PROFILE_STATS_TOKEN || secrets.STREAK_STATS_TOKEN }}
 
+      - name: Add ambient glow and fire pulse animation
+        run: |
+          node -e '
+            const fs = require("fs");
+            let svg = fs.readFileSync("streak.svg", "utf8");
+            const css = `
+              @keyframes ringGlow {
+                0%, 100% { filter: drop-shadow(0 0 2px rgba(79, 140, 201, 0.35)); stroke: #4f8cc9; }
+                50% { filter: drop-shadow(0 0 8px rgba(108, 182, 255, 0.75)); stroke: #6cb6ff; }
+              }
+              @keyframes firePulse {
+                0%, 100% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(79, 140, 201, 0.4)); }
+                50% { transform: scale(1.1); filter: drop-shadow(0 0 7px rgba(108, 182, 255, 0.85)); }
+              }
+            `;
+            svg = svg.replace("</style>", css + "\n        </style>");
+            svg = svg.replace(
+              "animation: fadein 0.5s linear forwards 0.4s",
+              "animation: fadein 0.5s linear forwards 0.4s, ringGlow 3s ease-in-out infinite 0.9s"
+            );
+            svg = svg.replace(
+              "fill=\x27#4f8cc9\x27 stroke-opacity=\x270\x27/>",
+              "fill=\x27#4f8cc9\x27 stroke-opacity=\x270\x27 style=\x27transform-box: fill-box; transform-origin: center; animation: firePulse 2.4s ease-in-out infinite;\x27/>"
+            );
+            fs.writeFileSync("streak.svg", svg, "utf8");
+          '
+
       - name: Commit updated streak.svg
         run: |
           git config user.name "github-actions[bot]"
