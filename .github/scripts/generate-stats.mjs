@@ -135,17 +135,19 @@ function renderSvg(stats) {
   const maxCount = Math.max(...counts, 1);
   const barWidth = 26;
   const barGap = 8;
-  const maxBarH = 12;
+  const maxBarH = 14;
   const microBars = counts
     .map((count, i) => {
       const h = count === 0 ? 2 : Math.max(3, Math.round((count / maxCount) * maxBarH));
       const x = i * (barWidth + barGap);
       const y = maxBarH - h;
+      const pct = (count / maxCount) * 100;
       let fill = "#262626";
       if (count > 0) {
-        if (count === maxCount) fill = "#6cb6ff";
-        else if (count >= maxCount * 0.5) fill = "#4f8cc9";
-        else fill = "#355d87";
+        if (pct > 75) fill = "#6ea4d8";
+        else if (pct > 50) fill = "#4f8cc9";
+        else if (pct > 25) fill = "#355d87";
+        else fill = "#243b55";
       }
       const cls = i === counts.length - 1 ? ` class="current-month"` : "";
       return `<rect x="${x}" y="${y}" width="${barWidth}" height="${h}" rx="1.5" fill="${fill}"${cls}/>`;
@@ -169,7 +171,7 @@ function renderSvg(stats) {
   <g transform="translate(25, 35)">
     <text x="0" y="0" class="header">GitHub Stats</text>
   </g>
-  <g transform="translate(25, 51)">
+  <g transform="translate(25, 49)">
     ${microBars}
   </g>
   <g transform="translate(25, 92)">
