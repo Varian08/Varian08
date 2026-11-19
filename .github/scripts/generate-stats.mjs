@@ -147,7 +147,8 @@ function renderSvg(stats) {
         else if (count >= maxCount * 0.5) fill = "#4f8cc9";
         else fill = "#355d87";
       }
-      return `<rect x="${x}" y="${y}" width="${barWidth}" height="${h}" rx="1.5" fill="${fill}"/>`;
+      const cls = i === counts.length - 1 ? ` class="current-month"` : "";
+      return `<rect x="${x}" y="${y}" width="${barWidth}" height="${h}" rx="1.5" fill="${fill}"${cls}/>`;
     })
     .join("\n    ");
 
@@ -156,6 +157,11 @@ function renderSvg(stats) {
     .header { font: 600 15.5px 'Segoe UI', Ubuntu, Sans-Serif; fill: #4f8cc9; }
     .stat { font: 600 12px 'Segoe UI', Ubuntu, "Helvetica Neue", Sans-Serif; fill: #9e9e9e; }
     .stat-val { font: 400 12px 'Segoe UI', Ubuntu, "Helvetica Neue", Sans-Serif; fill: #cfcfcf; }
+    @keyframes currentMonthGlow {
+      0%, 100% { filter: drop-shadow(0 0 1px rgba(79, 140, 201, 0.15)); }
+      50% { filter: drop-shadow(0 0 3.5px rgba(108, 182, 255, 0.45)); }
+    }
+    .current-month { animation: currentMonthGlow 4s ease-in-out infinite; }
   </style>
   <rect x="0.5" y="0.5" rx="6.1" height="${height - 1}" stroke="#343434" width="${
     width - 1
