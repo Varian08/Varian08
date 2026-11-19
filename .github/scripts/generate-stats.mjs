@@ -115,7 +115,7 @@ function renderSvg(stats) {
     { icon: ICONS.pr, label: "Total PRs:", value: stats.prs },
   ];
   const rightRows = [
-    { icon: ICONS.review, label: "PRs Reviewed:", value: stats.reviews },
+    { icon: ICONS.review, label: "PRs Reviewed (1y):", value: stats.reviews },
     { icon: ICONS.issue, label: "Total Issues:", value: stats.issues },
   ];
 
