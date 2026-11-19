@@ -13,5 +13,8 @@
     <img height="115" src="./stats.svg" alt="GitHub Stats" />
     <img height="115" src="./top-langs.svg" alt="Top Languages" />
   </p>
+  <p>
+    <sub>Stats by year: <a href="./stats-2024.svg">2024</a> · <a href="./stats-2025.svg">2025</a> · <strong>2026</strong></sub>
+  </p>
 
 </div>
