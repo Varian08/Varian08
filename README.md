@@ -13,11 +13,5 @@
     <img height="115" src="./stats.svg" alt="GitHub Stats" />
     <img height="115" src="./top-langs.svg" alt="Top Languages" />
   </p>
-  <details>
-    <summary><sub>Previous years (2024 – 2025)</sub></summary>
-    <br />
-    <img height="115" src="./stats-2025.svg" alt="GitHub Stats 2025" />
-    <img height="115" src="./stats-2024.svg" alt="GitHub Stats 2024" />
-  </details>
 
 </div>
