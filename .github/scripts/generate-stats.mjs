@@ -111,12 +111,12 @@ function renderSvg(stats) {
   const width = 450;
   const height = 140;
   const leftRows = [
-    { icon: ICONS.commit, label: "Total Commits (1y):", value: stats.commits },
-    { icon: ICONS.pr, label: "Total PRs:", value: stats.prs },
+    { icon: ICONS.commit, label: "Total Commits (1y)", value: stats.commits },
+    { icon: ICONS.pr, label: "Total PRs", value: stats.prs },
   ];
   const rightRows = [
-    { icon: ICONS.review, label: "PRs Reviewed (1y):", value: stats.reviews },
-    { icon: ICONS.issue, label: "Total Issues:", value: stats.issues },
+    { icon: ICONS.review, label: "PRs Reviewed (1y)", value: stats.reviews },
+    { icon: ICONS.issue, label: "Total Issues", value: stats.issues },
   ];
 
   const renderCol = (rows, valX) =>
@@ -155,7 +155,7 @@ function renderSvg(stats) {
   <style>
     .header { font: 600 15.5px 'Segoe UI', Ubuntu, Sans-Serif; fill: #4f8cc9; }
     .stat { font: 600 12px 'Segoe UI', Ubuntu, "Helvetica Neue", Sans-Serif; fill: #9e9e9e; }
-    .stat-val { font: 400 12px 'Segoe UI', Ubuntu, "Helvetica Neue", Sans-Serif; fill: #9e9e9e; }
+    .stat-val { font: 400 12px 'Segoe UI', Ubuntu, "Helvetica Neue", Sans-Serif; fill: #cfcfcf; }
   </style>
   <rect x="0.5" y="0.5" rx="6.1" height="${height - 1}" stroke="#343434" width="${
     width - 1
