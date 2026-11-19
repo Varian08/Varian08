@@ -193,19 +193,18 @@ async function main() {
     }
   }
 
-  if (fs.existsSync("README.md")) {
+  if (fs.existsSync("README.md") && currentYear > startYear) {
     const readme = fs.readFileSync("README.md", "utf8");
-    const yearItems = [];
-    for (let y = startYear; y <= currentYear; y++) {
-      yearItems.push(
-        y === currentYear ? `<strong>${y}</strong>` : `<a href="./stats-${y}.svg">${y}</a>`
-      );
+    const prevEnd = currentYear - 1;
+    const imgs = [];
+    for (let y = prevEnd; y >= startYear; y--) {
+      imgs.push(`    <img height="115" src="./stats-${y}.svg" alt="GitHub Stats ${y}" />`);
     }
-    const newLine = `<sub>Stats by year: ${yearItems.join(" · ")}</sub>`;
-    const updated = readme.replace(/<sub>Stats by year:.*?<\/sub>/, newLine);
+    const detailsBlock = `<details>\n    <summary><sub>Previous years (${startYear} – ${prevEnd})</sub></summary>\n    <br />\n${imgs.join("\n")}\n  </details>`;
+    const updated = readme.replace(/<details>[\s\S]*?<\/details>/, detailsBlock);
     if (updated !== readme) {
       fs.writeFileSync("README.md", updated, "utf8");
-      console.log("Updated README.md year links");
+      console.log("Updated README.md previous years details");
     }
   }
 }
