@@ -180,11 +180,34 @@ function renderSvg(stats) {
 }
 
 async function main() {
-  const stats = await fetchStats(TARGET_YEAR);
-  console.log(`Fetched GitHub Stats (${TARGET_YEAR}):`, stats);
-  const svg = renderSvg(stats);
-  fs.writeFileSync(OUTPUT_PATH, svg, "utf8");
-  console.log(`Wrote ${OUTPUT_PATH}`);
+  const startYear = Number(process.env.START_YEAR || 2024);
+  const currentYear = NOW.getFullYear();
+
+  for (let year = startYear; year <= currentYear; year++) {
+    const stats = await fetchStats(year);
+    console.log(`Fetched GitHub Stats (${year}):`, stats);
+    const svg = renderSvg(stats);
+    fs.writeFileSync(`stats-${year}.svg`, svg, "utf8");
+    if (year === currentYear) {
+      fs.writeFileSync(OUTPUT_PATH, svg, "utf8");
+    }
+  }
+
+  if (fs.existsSync("README.md")) {
+    const readme = fs.readFileSync("README.md", "utf8");
+    const yearItems = [];
+    for (let y = startYear; y <= currentYear; y++) {
+      yearItems.push(
+        y === currentYear ? `<strong>${y}</strong>` : `<a href="./stats-${y}.svg">${y}</a>`
+      );
+    }
+    const newLine = `<sub>Stats by year: ${yearItems.join(" · ")}</sub>`;
+    const updated = readme.replace(/<sub>Stats by year:.*?<\/sub>/, newLine);
+    if (updated !== readme) {
+      fs.writeFileSync("README.md", updated, "utf8");
+      console.log("Updated README.md year links");
+    }
+  }
 }
 
 main().catch((err) => {
