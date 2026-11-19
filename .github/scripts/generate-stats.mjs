@@ -8,18 +8,36 @@ if (!TOKEN) {
   throw new Error("GITHUB_TOKEN is required");
 }
 
+async function graphql(query, variables) {
+  const res = await fetch("https://api.github.com/graphql", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${TOKEN}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ query, variables }),
+  });
+
+  if (!res.ok) {
+    throw new Error(`GraphQL HTTP ${res.status}: ${await res.text()}`);
+  }
+  const json = await res.json();
+  if (json.errors) {
+    throw new Error(`GraphQL error: ${JSON.stringify(json.errors)}`);
+  }
+  return json.data.user;
+}
+
 async function fetchStats() {
   const now = new Date();
   const oneYearAgo = new Date(now);
   oneYearAgo.setFullYear(now.getFullYear() - 1);
 
-  const query = `
+  const mainQuery = `
     query($login: String!, $from: DateTime!, $to: DateTime!) {
       user(login: $login) {
+        createdAt
         contributionsCollection(from: $from, to: $to) {
-          totalCommitContributions
-          restrictedContributionsCount
-          totalPullRequestReviewContributions
           contributionCalendar {
             weeks {
               contributionDays {
@@ -35,42 +53,45 @@ async function fetchStats() {
         issues(first: 1) {
           totalCount
         }
-        repositoriesContributedTo(
-          first: 1
-          contributionTypes: [COMMIT, PULL_REQUEST, ISSUE, PULL_REQUEST_REVIEW]
-          includeUserRepositories: true
-        ) {
-          totalCount
+      }
+    }
+  `;
+
+  const u = await graphql(mainQuery, {
+    login: USERNAME,
+    from: oneYearAgo.toISOString(),
+    to: now.toISOString(),
+  });
+
+  const startYear = new Date(u.createdAt).getUTCFullYear();
+  const endYear = now.getUTCFullYear();
+  const yearQuery = `
+    query($login: String!, $from: DateTime!, $to: DateTime!) {
+      user(login: $login) {
+        contributionsCollection(from: $from, to: $to) {
+          totalCommitContributions
+          restrictedContributionsCount
+          totalPullRequestReviewContributions
         }
       }
     }
   `;
 
-  const res = await fetch("https://api.github.com/graphql", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${TOKEN}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      query,
-      variables: {
-        login: USERNAME,
-        from: oneYearAgo.toISOString(),
-        to: now.toISOString(),
-      },
-    }),
-  });
-
-  if (!res.ok) {
-    throw new Error(`GraphQL HTTP ${res.status}: ${await res.text()}`);
-  }
-  const json = await res.json();
-  if (json.errors) {
-    throw new Error(`GraphQL error: ${JSON.stringify(json.errors)}`);
+  let allTimeCommits = 0;
+  let allTimeReviews = 0;
+  for (let y = startYear; y <= endYear; y++) {
+    const from = new Date(Date.UTC(y, 0, 1, 0, 0, 0));
+    const to = y === endYear ? now : new Date(Date.UTC(y, 11, 31, 23, 59, 59));
+    const yrUser = await graphql(yearQuery, {
+      login: USERNAME,
+      from: from.toISOString(),
+      to: to.toISOString(),
+    });
+    const yc = yrUser.contributionsCollection;
+    allTimeCommits += (yc.totalCommitContributions || 0) + (yc.restrictedContributionsCount || 0);
+    allTimeReviews += yc.totalPullRequestReviewContributions || 0;
   }
 
-  const u = json.data.user;
   const c = u.contributionsCollection;
 
   // Aggregate contributionCalendar into the last 12 calendar months (oldest -> newest)
@@ -91,11 +112,10 @@ async function fetchStats() {
   }
 
   return {
-    commits: (c.totalCommitContributions || 0) + (c.restrictedContributionsCount || 0),
+    commits: allTimeCommits,
     prs: u.pullRequests.totalCount || 0,
-    reviews: c.totalPullRequestReviewContributions || 0,
+    reviews: allTimeReviews,
     issues: u.issues.totalCount || 0,
-    activeRepos: u.repositoriesContributedTo.totalCount || 0,
     monthlyCounts: monthKeys.map((k) => monthMap[k]),
   };
 }
@@ -111,11 +131,11 @@ function renderSvg(stats) {
   const width = 450;
   const height = 140;
   const leftRows = [
-    { icon: ICONS.commit, label: "Total Commits (1y)", value: stats.commits },
+    { icon: ICONS.commit, label: "Total Commits", value: stats.commits },
     { icon: ICONS.pr, label: "Total PRs", value: stats.prs },
   ];
   const rightRows = [
-    { icon: ICONS.review, label: "PRs Reviewed (1y)", value: stats.reviews },
+    { icon: ICONS.review, label: "PRs Reviewed", value: stats.reviews },
     { icon: ICONS.issue, label: "Total Issues", value: stats.issues },
   ];
 
