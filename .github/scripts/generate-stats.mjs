@@ -3,15 +3,19 @@ import fs from "node:fs";
 const TOKEN = process.env.GITHUB_TOKEN;
 const USERNAME = process.env.GITHUB_USERNAME || "Varian08";
 const OUTPUT_PATH = process.env.OUTPUT_PATH || "stats.svg";
+const NOW = new Date();
+const TARGET_YEAR = Number(process.env.STATS_YEAR || NOW.getFullYear());
 
 if (!TOKEN) {
   throw new Error("GITHUB_TOKEN is required");
 }
 
-async function fetchStats() {
-  const now = new Date();
-  const oneYearAgo = new Date(now);
-  oneYearAgo.setFullYear(now.getFullYear() - 1);
+async function fetchStats(year) {
+  const from = new Date(Date.UTC(year, 0, 1, 0, 0, 0));
+  const to =
+    year === NOW.getFullYear()
+      ? NOW
+      : new Date(Date.UTC(year, 11, 31, 23, 59, 59));
 
   const query = `
     query($login: String!, $from: DateTime!, $to: DateTime!) {
@@ -19,7 +23,9 @@ async function fetchStats() {
         contributionsCollection(from: $from, to: $to) {
           totalCommitContributions
           restrictedContributionsCount
+          totalPullRequestContributions
           totalPullRequestReviewContributions
+          totalIssueContributions
           contributionCalendar {
             weeks {
               contributionDays {
@@ -28,19 +34,6 @@ async function fetchStats() {
               }
             }
           }
-        }
-        pullRequests(first: 1) {
-          totalCount
-        }
-        issues(first: 1) {
-          totalCount
-        }
-        repositoriesContributedTo(
-          first: 1
-          contributionTypes: [COMMIT, PULL_REQUEST, ISSUE, PULL_REQUEST_REVIEW]
-          includeUserRepositories: true
-        ) {
-          totalCount
         }
       }
     }
@@ -56,8 +49,8 @@ async function fetchStats() {
       query,
       variables: {
         login: USERNAME,
-        from: oneYearAgo.toISOString(),
-        to: now.toISOString(),
+        from: from.toISOString(),
+        to: to.toISOString(),
       },
     }),
   });
@@ -73,13 +66,11 @@ async function fetchStats() {
   const u = json.data.user;
   const c = u.contributionsCollection;
 
-  // Aggregate contributionCalendar into the last 12 calendar months (oldest -> newest)
-  const monthKeys = [];
-  for (let i = 11; i >= 0; i--) {
-    const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
-    const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`;
-    monthKeys.push(key);
-  }
+  // Aggregate contributionCalendar into Jan..Dec of TARGET_YEAR
+  const monthKeys = Array.from(
+    { length: 12 },
+    (_, m) => `${year}-${String(m + 1).padStart(2, "0")}`
+  );
   const monthMap = Object.fromEntries(monthKeys.map((k) => [k, 0]));
   for (const week of c.contributionCalendar?.weeks || []) {
     for (const day of week.contributionDays || []) {
@@ -91,11 +82,11 @@ async function fetchStats() {
   }
 
   return {
+    year,
     commits: (c.totalCommitContributions || 0) + (c.restrictedContributionsCount || 0),
-    prs: u.pullRequests.totalCount || 0,
+    prs: c.totalPullRequestContributions || 0,
     reviews: c.totalPullRequestReviewContributions || 0,
-    issues: u.issues.totalCount || 0,
-    activeRepos: u.repositoriesContributedTo.totalCount || 0,
+    issues: c.totalIssueContributions || 0,
     monthlyCounts: monthKeys.map((k) => monthMap[k]),
   };
 }
@@ -111,11 +102,11 @@ function renderSvg(stats) {
   const width = 450;
   const height = 140;
   const leftRows = [
-    { icon: ICONS.commit, label: "Total Commits (1y)", value: stats.commits },
+    { icon: ICONS.commit, label: "Total Commits", value: stats.commits },
     { icon: ICONS.pr, label: "Total PRs", value: stats.prs },
   ];
   const rightRows = [
-    { icon: ICONS.review, label: "PRs Reviewed (1y)", value: stats.reviews },
+    { icon: ICONS.review, label: "PRs Reviewed", value: stats.reviews },
     { icon: ICONS.issue, label: "Total Issues", value: stats.issues },
   ];
 
@@ -136,6 +127,7 @@ function renderSvg(stats) {
   const barWidth = 26;
   const barGap = 8;
   const maxBarH = 22;
+  const currentMonthIdx = stats.year === NOW.getFullYear() ? NOW.getMonth() : -1;
   const microBars = counts
     .map((count, i) => {
       const h = count === 0 ? 2 : Math.max(3, Math.round((count / maxCount) * maxBarH));
@@ -149,7 +141,7 @@ function renderSvg(stats) {
         else if (pct > 25) fill = "#355d87";
         else fill = "#243b55";
       }
-      const cls = i === counts.length - 1 ? ` class="current-month"` : "";
+      const cls = i === currentMonthIdx ? ` class="current-month"` : "";
       return `<rect x="${x}" y="${y}" width="${barWidth}" height="${h}" rx="1.5" fill="${fill}"${cls}/>`;
     })
     .join("\n    ");
@@ -157,6 +149,7 @@ function renderSvg(stats) {
   return `<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GitHub Stats">
   <style>
     .header { font: 600 15.5px 'Segoe UI', Ubuntu, Sans-Serif; fill: #4f8cc9; }
+    .year-label { font: 600 12px 'Segoe UI', Ubuntu, Sans-Serif; fill: #787878; }
     .stat { font: 600 12px 'Segoe UI', Ubuntu, "Helvetica Neue", Sans-Serif; fill: #9e9e9e; }
     .stat-val { font: 400 12px 'Segoe UI', Ubuntu, "Helvetica Neue", Sans-Serif; fill: #cfcfcf; }
     @keyframes currentMonthGlow {
@@ -170,6 +163,7 @@ function renderSvg(stats) {
   }" fill="#000000" fill-opacity="0"/>
   <g transform="translate(25, 35)">
     <text x="0" y="0" class="header">GitHub Stats</text>
+    <text x="400" y="0" text-anchor="end" class="year-label">${stats.year}</text>
   </g>
   <g transform="translate(25, 41)">
     ${microBars}
@@ -186,8 +180,8 @@ function renderSvg(stats) {
 }
 
 async function main() {
-  const stats = await fetchStats();
-  console.log("Fetched GitHub Stats (with private):", stats);
+  const stats = await fetchStats(TARGET_YEAR);
+  console.log(`Fetched GitHub Stats (${TARGET_YEAR}):`, stats);
   const svg = renderSvg(stats);
   fs.writeFileSync(OUTPUT_PATH, svg, "utf8");
   console.log(`Wrote ${OUTPUT_PATH}`);
