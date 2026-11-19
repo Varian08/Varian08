@@ -144,7 +144,7 @@ function renderSvg(stats) {
       const pct = (count / maxCount) * 100;
       let fill = "#262626";
       if (count > 0) {
-        if (pct > 75) fill = "#6ea4d8";
+        if (pct > 75) fill = "#6cb6ff";
         else if (pct > 50) fill = "#4f8cc9";
         else if (pct > 25) fill = "#355d87";
         else fill = "#243b55";

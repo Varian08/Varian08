@@ -24,7 +24,7 @@ jobs:
       - name: Generate streak stats SVG
         uses: DenverCoder1/github-readme-streak-stats@v1
         with:
-          options: user=Varian08&theme=transparent&border=343434&border_radius=6.7&stroke=343434&ring=4f8cc9&fire=4f8cc9&currStreakNum=e6e6e6&currStreakLabel=6ea4d8&sideNums=4f8cc9&sideLabels=9e9e9e&dates=787878
+          options: user=Varian08&theme=transparent&border=343434&border_radius=6.7&stroke=343434&ring=4f8cc9&fire=6cb6ff&currStreakNum=e6e6e6&currStreakLabel=6ea4d8&sideNums=4f8cc9&sideLabels=9e9e9e&dates=787878
           path: streak.svg
           token: ${{ secrets.PROFILE_STATS_TOKEN || secrets.STREAK_STATS_TOKEN }}
 
@@ -49,8 +49,8 @@ jobs:
               "animation: fadein 0.5s linear forwards 0.4s, ringGlow 4s ease-in-out infinite 0.9s"
             );
             svg = svg.replace(
-              "fill=\x27#4f8cc9\x27 stroke-opacity=\x270\x27/>",
-              "fill=\x27#4f8cc9\x27 stroke-opacity=\x270\x27 style=\x27transform-box: fill-box; transform-origin: center; animation: firePulse 3s ease-in-out infinite;\x27/>"
+              "fill=\x27#6cb6ff\x27 stroke-opacity=\x270\x27/>",
+              "fill=\x27#6cb6ff\x27 stroke-opacity=\x270\x27 style=\x27transform-box: fill-box; transform-origin: center; animation: firePulse 3s ease-in-out infinite;\x27/>"
             );
             fs.writeFileSync("streak.svg", svg, "utf8");
           '
