@@ -155,7 +155,7 @@ function renderSvg(stats) {
   const maxCount = Math.max(...counts, 1);
   const barWidth = 26;
   const barGap = 8;
-  const maxBarH = 22;
+  const maxBarH = 20;
   const microBars = counts
     .map((count, i) => {
       const h = count === 0 ? 2 : Math.max(3, Math.round((count / maxCount) * maxBarH));
@@ -191,7 +191,7 @@ function renderSvg(stats) {
   <g transform="translate(25, 35)">
     <text x="0" y="0" class="header">GitHub Stats</text>
   </g>
-  <g transform="translate(25, 41)">
+  <g transform="translate(25, 43)">
     ${microBars}
   </g>
   <g transform="translate(25, 92)">
