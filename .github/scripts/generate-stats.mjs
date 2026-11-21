@@ -169,8 +169,9 @@ function renderSvg(stats) {
         else if (pct > 25) fill = "#355d87";
         else fill = "#243b55";
       }
-      const cls = i === counts.length - 1 ? ` class="current-month"` : "";
-      return `<rect x="${x}" y="${y}" width="${barWidth}" height="${h}" rx="1.5" fill="${fill}"${cls}/>`;
+      const cls = i === counts.length - 1 ? ` class="bar current-month"` : ` class="bar"`;
+      const delay = (i * 0.03).toFixed(2);
+      return `<rect x="${x}" y="${y}" width="${barWidth}" height="${h}" rx="1.5" fill="${fill}"${cls} style="animation-delay: ${delay}s${i === counts.length - 1 ? ", 0.8s" : ""}"/>`;
     })
     .join("\n    ");
 
@@ -179,11 +180,18 @@ function renderSvg(stats) {
     .header { font: 600 15.5px 'Segoe UI', Ubuntu, Sans-Serif; fill: #4f8cc9; }
     .stat { font: 600 12px 'Segoe UI', Ubuntu, "Helvetica Neue", Sans-Serif; fill: #9e9e9e; }
     .stat-val { font: 400 12px 'Segoe UI', Ubuntu, "Helvetica Neue", Sans-Serif; fill: #9e9e9e; }
+    @keyframes barRise {
+      from { transform: scaleY(0); opacity: 0; }
+      to { transform: scaleY(1); opacity: 1; }
+    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     @keyframes currentMonthGlow {
       0%, 100% { filter: drop-shadow(0 0 1px rgba(79, 140, 201, 0.15)); }
       50% { filter: drop-shadow(0 0 3.5px rgba(108, 182, 255, 0.45)); }
     }
-    .current-month { animation: currentMonthGlow 4s ease-in-out infinite; }
+    .bar { transform-box: fill-box; transform-origin: bottom; opacity: 0; animation: barRise 0.45s ease-out forwards; }
+    .current-month { animation: barRise 0.45s ease-out forwards, currentMonthGlow 4s ease-in-out infinite; }
+    .stats-body { opacity: 0; animation: fadeIn 0.45s ease-out 0.2s forwards; }
   </style>
   <rect x="0.5" y="0.5" rx="6.1" height="${height - 1}" stroke="#343434" width="${
     width - 1
@@ -194,12 +202,14 @@ function renderSvg(stats) {
   <g transform="translate(25, 43)">
     ${microBars}
   </g>
+  <g class="stats-body">
   <g transform="translate(25, 92)">
     ${renderCol(leftRows, 182)}
   </g>
   <line x1="227" y1="80" x2="227" y2="121" stroke="#343434" stroke-width="1"/>
   <g transform="translate(247, 92)">
     ${renderCol(rightRows, 178)}
+  </g>
   </g>
 </svg>
 `;
