@@ -177,8 +177,8 @@ function renderSvg(topLangs) {
     .lang-name { font: 600 12px 'Segoe UI', Ubuntu, "Helvetica Neue", Sans-Serif; fill: #9e9e9e; }
     @keyframes barExpand { from { transform: scaleX(0); } to { transform: scaleX(1); } }
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    .progress-bar { transform-box: fill-box; transform-origin: left; animation: barExpand 0.6s ease-out forwards; }
-    .langs-body { opacity: 0; animation: fadeIn 0.45s ease-out 0.2s forwards; }
+    .progress-bar { transform-box: fill-box; transform-origin: left; animation: barExpand 1.1s ease-out forwards; }
+    .langs-body { opacity: 0; animation: fadeIn 0.8s ease-out 0.4s forwards; }
   </style>
   <rect x="0.5" y="0.5" rx="6.1" height="${height - 1}" stroke="#343434" width="${
     width - 1

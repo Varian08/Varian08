@@ -1,15 +1,15 @@
 <svg width="907" height="170" viewBox="0 0 907 170" fill="none" xmlns="http://www.w3.org/2000/svg">
   <style>
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    .line { opacity: 0; animation: fadeIn 0.45s ease-out forwards; }
+    .line { opacity: 0; animation: fadeIn 0.85s ease-out forwards; }
   </style>
   <rect x="0.6" y="0.6" width="905.8" height="168.8" rx="6.1" stroke="#343434" stroke-width="1.2" />
   <text x="25" y="34" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-size="18" font-weight="600" fill="#4f8cc9">About</text>
   <text x="25" y="64" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-size="14.5" font-weight="400" font-style="italic" fill="#9e9e9e">
-    <tspan x="25" dy="0" class="line" style="animation-delay: 0.05s">I'm a Software Engineer.</tspan>
-    <tspan x="25" dy="22" class="line" style="animation-delay: 0.13s">I focus on problem-solving, system design, and delivering reliable software from database to UI.</tspan>
-    <tspan x="25" dy="22" class="line" style="animation-delay: 0.21s">I apply my knowledge, skills, and engineering discipline to get work done professionally and effectively,</tspan>
-    <tspan x="25" dy="22" class="line" style="animation-delay: 0.29s">taking full responsibility for what I build. Always eager to learn fast and pick up new technologies,</tspan>
-    <tspan x="25" dy="22" class="line" style="animation-delay: 0.37s">I strive to keep improving and create real value through my work.</tspan>
+    <tspan x="25" dy="0" class="line" style="animation-delay: 0.1s">I'm a Software Engineer.</tspan>
+    <tspan x="25" dy="22" class="line" style="animation-delay: 0.25s">I focus on problem-solving, system design, and delivering reliable software from database to UI.</tspan>
+    <tspan x="25" dy="22" class="line" style="animation-delay: 0.4s">I apply my knowledge, skills, and engineering discipline to get work done professionally and effectively,</tspan>
+    <tspan x="25" dy="22" class="line" style="animation-delay: 0.55s">taking full responsibility for what I build. Always eager to learn fast and pick up new technologies,</tspan>
+    <tspan x="25" dy="22" class="line" style="animation-delay: 0.7s">I strive to keep improving and create real value through my work.</tspan>
   </text>
 </svg>
