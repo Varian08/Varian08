@@ -12,9 +12,9 @@
       0%, 100% { filter: drop-shadow(0 0 1px rgba(79, 140, 201, 0.15)); }
       50% { filter: drop-shadow(0 0 3.5px rgba(108, 182, 255, 0.45)); }
     }
-    .bar { transform-box: fill-box; transform-origin: bottom; opacity: 0; animation: barRise 0.8s ease-out forwards; }
-    .current-month { animation: barRise 0.8s ease-out forwards, currentMonthGlow 4s ease-in-out infinite; }
-    .stats-body { opacity: 0; animation: fadeIn 0.8s ease-out 0.4s forwards; }
+    .bar { transform-box: fill-box; transform-origin: bottom; opacity: 0; animation: barRise 1.3s ease-out forwards; }
+    .current-month { animation: barRise 1.3s ease-out forwards, currentMonthGlow 4s ease-in-out infinite; }
+    .stats-body { opacity: 0; animation: fadeIn 1.2s ease-out 0.7s forwards; }
   </style>
   <rect x="0.5" y="0.5" rx="6.1" height="139" stroke="#343434" width="449" fill="#000000" fill-opacity="0"/>
   <g transform="translate(25, 35)">
@@ -22,24 +22,24 @@
   </g>
   <g transform="translate(25, 43)">
     <rect x="0" y="18" width="26" height="2" rx="1.5" fill="#262626" class="bar" style="animation-delay: 0.00s"/>
-    <rect x="34" y="18" width="26" height="2" rx="1.5" fill="#262626" class="bar" style="animation-delay: 0.06s"/>
-    <rect x="68" y="18" width="26" height="2" rx="1.5" fill="#262626" class="bar" style="animation-delay: 0.12s"/>
-    <rect x="102" y="17" width="26" height="3" rx="1.5" fill="#243b55" class="bar" style="animation-delay: 0.18s"/>
-    <rect x="136" y="18" width="26" height="2" rx="1.5" fill="#262626" class="bar" style="animation-delay: 0.24s"/>
-    <rect x="170" y="18" width="26" height="2" rx="1.5" fill="#262626" class="bar" style="animation-delay: 0.30s"/>
-    <rect x="204" y="17" width="26" height="3" rx="1.5" fill="#243b55" class="bar" style="animation-delay: 0.36s"/>
-    <rect x="238" y="11" width="26" height="9" rx="1.5" fill="#355d87" class="bar" style="animation-delay: 0.42s"/>
-    <rect x="272" y="18" width="26" height="2" rx="1.5" fill="#262626" class="bar" style="animation-delay: 0.48s"/>
-    <rect x="306" y="14" width="26" height="6" rx="1.5" fill="#355d87" class="bar" style="animation-delay: 0.54s"/>
-    <rect x="340" y="6" width="26" height="14" rx="1.5" fill="#4f8cc9" class="bar" style="animation-delay: 0.60s"/>
-    <rect x="374" y="0" width="26" height="20" rx="1.5" fill="#6cb6ff" class="bar current-month" style="animation-delay: 0.66s, 1.5s"/>
+    <rect x="34" y="18" width="26" height="2" rx="1.5" fill="#262626" class="bar" style="animation-delay: 0.10s"/>
+    <rect x="68" y="18" width="26" height="2" rx="1.5" fill="#262626" class="bar" style="animation-delay: 0.20s"/>
+    <rect x="102" y="17" width="26" height="3" rx="1.5" fill="#243b55" class="bar" style="animation-delay: 0.30s"/>
+    <rect x="136" y="18" width="26" height="2" rx="1.5" fill="#262626" class="bar" style="animation-delay: 0.40s"/>
+    <rect x="170" y="18" width="26" height="2" rx="1.5" fill="#262626" class="bar" style="animation-delay: 0.50s"/>
+    <rect x="204" y="17" width="26" height="3" rx="1.5" fill="#243b55" class="bar" style="animation-delay: 0.60s"/>
+    <rect x="238" y="11" width="26" height="9" rx="1.5" fill="#355d87" class="bar" style="animation-delay: 0.70s"/>
+    <rect x="272" y="18" width="26" height="2" rx="1.5" fill="#262626" class="bar" style="animation-delay: 0.80s"/>
+    <rect x="306" y="14" width="26" height="6" rx="1.5" fill="#355d87" class="bar" style="animation-delay: 0.90s"/>
+    <rect x="340" y="6" width="26" height="14" rx="1.5" fill="#4f8cc9" class="bar" style="animation-delay: 1.00s"/>
+    <rect x="374" y="0" width="26" height="20" rx="1.5" fill="#6cb6ff" class="bar current-month" style="animation-delay: 1.10s, 2.4s"/>
   </g>
   <g class="stats-body">
   <g transform="translate(25, 92)">
     <g transform="translate(0, 0)">
       <svg x="0" y="-11" width="14" height="14" viewBox="0 0 16 16" fill="#4f8cc9"><path fill-rule="evenodd" d="M10.5 7.75a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0zm1.43.75a4.002 4.002 0 01-7.86 0H.75a.75.75 0 110-1.5h3.32a4.001 4.001 0 017.86 0h3.32a.75.75 0 110 1.5h-3.32z"/></svg>
       <text x="20" y="0" class="stat">Total Commits</text>
-      <text x="182" y="0" text-anchor="end" class="stat-val">329</text>
+      <text x="182" y="0" text-anchor="end" class="stat-val">330</text>
     </g>
     <g transform="translate(0, 25)">
       <svg x="0" y="-11" width="14" height="14" viewBox="0 0 16 16" fill="#4f8cc9"><path fill-rule="evenodd" d="M7.177 3.073L9.573.677A.25.25 0 0110 .854v4.792a.25.25 0 01-.427.177L7.177 3.427a.25.25 0 010-.354zM3.75 2.5a.75.75 0 100 1.5.75.75 0 000-1.5zm-2.25.75a2.25 2.25 0 113 2.122v5.256a2.251 2.251 0 11-1.5 0V5.372A2.25 2.25 0 011.5 3.25zM11 2.5h-1V4h1a1 1 0 011 1v5.628a2.251 2.251 0 101.5 0V5A2.5 2.5 0 0011 2.5zm1 10.25a.75.75 0 111.5 0 .75.75 0 01-1.5 0zM3.75 12a.75.75 0 100 1.5.75.75 0 000-1.5z"/></svg>
