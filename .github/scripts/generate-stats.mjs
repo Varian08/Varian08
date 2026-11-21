@@ -189,9 +189,9 @@ function renderSvg(stats) {
       0%, 100% { filter: drop-shadow(0 0 1px rgba(79, 140, 201, 0.15)); }
       50% { filter: drop-shadow(0 0 3.5px rgba(108, 182, 255, 0.45)); }
     }
-    .bar { transform-box: fill-box; transform-origin: bottom; opacity: 0; animation: barRise 2.2s ease-out forwards; }
-    .current-month { animation: barRise 2.2s ease-out forwards, currentMonthGlow 4s ease-in-out infinite; }
-    .stats-body { opacity: 0; animation: fadeIn 2s ease-out 1.2s forwards; }
+    .bar { transform-box: fill-box; transform-origin: bottom; opacity: 0; animation: barRise 2.5s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+    .current-month { animation: barRise 2.5s cubic-bezier(0.22, 1, 0.36, 1) forwards, currentMonthGlow 4s ease-in-out infinite; }
+    .stats-body { opacity: 0; animation: fadeIn 2.2s cubic-bezier(0.22, 1, 0.36, 1) 1.2s forwards; }
   </style>
   <rect x="0.5" y="0.5" rx="6.1" height="${height - 1}" stroke="#343434" width="${
     width - 1

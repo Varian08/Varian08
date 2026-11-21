@@ -1,7 +1,7 @@
 <svg width="907" height="170" viewBox="0 0 907 170" fill="none" xmlns="http://www.w3.org/2000/svg">
   <style>
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    .line { opacity: 0; animation: fadeIn 2.2s ease-out forwards; }
+    .line { opacity: 0; animation: fadeIn 2.6s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
   </style>
   <rect x="0.6" y="0.6" width="905.8" height="168.8" rx="6.1" stroke="#343434" stroke-width="1.2" />
   <text x="25" y="34" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-size="18" font-weight="600" fill="#4f8cc9">About</text>
